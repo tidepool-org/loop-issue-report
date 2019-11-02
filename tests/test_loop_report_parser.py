@@ -1,64 +1,12 @@
 import loop.issuereport.loop_report_parser as plr
 import os
-import pytest
 
 
 def test_parse_by_file():
-
     dict = plr.parse_loop_report(os.getcwd() + "/files", "LoopReport.md")
-    print(dict)
-
     valid_loop_report_dict = get_valid_dictionary()
 
     assert dict == valid_loop_report_dict
-    print("stop")
-
-   ## latestBackfill
-""" 
-in carb_store :
-dex_cgm_manager
-dose_store
-under insulin_effect add integral_retrospective_correction
-loop_data_manager
-under messagelog add message_log
-
-
-
-under authorization required
-basalProfileApplyingOverrideHistory
-
-under carbRatioScheudule
-carbRatioScheduleApplyingOverrideHistory
-
-under insulinSensitivitySchedule
-insulinSensitivityScheduleApplyingOverrideHistory
-
-under observerQuery
-overrideHistory
-    at top 
-    latestBackfill
-    
-in dose_store
-    under basalProfile
-    basalProfileApplyingOverrideHistory
-
-in dex_cgm_manager
-
-
-
-
-cached_carb_entries
-cached_dose_entries
-
-
-cached_glucose_samples
-
-
-overrideHistory is missing
-latestBackfill is missing
-
-basalProfileApplyingOverrideHistory is missing
-"""
 
 def get_valid_dictionary():
     return {'generated': {'Generated': ' 2019-01-28 15:20:13 +0000\n'}, 'loop_version': {'loop_version': 'Loop v1.9.3'},
