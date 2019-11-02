@@ -1,0 +1,9 @@
+name: loop-issue-report
+dependencies:
+- python=3
+- pip
+- pytest
+- pytest-cov
+
+- pip:
+  - python-dotenv
