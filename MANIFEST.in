@@ -1,4 +1,4 @@
-recursive-include loop *
+recursive-include loop_issue_report *
 include LICENSE
 include README.md
 recursive-exclude tests

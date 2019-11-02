@@ -1,4 +1,4 @@
-import loop.issuereport.loop_report_parser as plr
+from loop_issue_report.loop import loop_issue_report as plr
 import os
 
 

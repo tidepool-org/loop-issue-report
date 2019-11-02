@@ -1,5 +1,5 @@
 # from projects.parsers.loop_report import LoopReport
-import loop.issuereport.loop_report as loop_report
+from loop_issue_report.loop import loop_issue_report as loop_report
 import os
 import pytest
 
