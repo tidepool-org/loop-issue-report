@@ -4,3 +4,4 @@ include README.md
 recursive-exclude tests
 exclude .travis.yml
 exclude .gitignore
+exclude tests
