@@ -1,4 +1,4 @@
-from loop_issue_report.loop import loop_issue_report as plr
+from loop import loop_issue_report as plr
 import os
 
 
