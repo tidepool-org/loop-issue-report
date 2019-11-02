@@ -1,5 +1,6 @@
-
 recursive-include loop *
 include LICENSE
 include README.md
-recursive-exclude tests *
+recursive-exclude tests
+exclude .travis.yml
+exclude .gitignore
