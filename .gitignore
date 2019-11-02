@@ -1,6 +1,7 @@
 \.DS_Store
 *.pyc
 *.png
+.idea
 build
 dist 
 pyloopkit.egg-info
