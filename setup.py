@@ -1,12 +1,14 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, find_namespace_packages
 import sys
 
 
 if sys.version_info < (3, 7):
     sys.exit("Sorry, Python < 3.7 is not supported")
 
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
+
 
 version_string = "v0.0.1"
 
@@ -19,7 +21,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/tidepool-org/PyLoopKit",
-    packages=find_packages(),
+    packages=find_namespace_packages(),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
