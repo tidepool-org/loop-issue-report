@@ -1,11 +1,11 @@
 # from projects.parsers.loop_report import LoopReport
-from loop.loop_issue_report import loop_report
+from loop.issue_report import parser
 import os
 import pytest
 
 
 def test_parse_by_file():
-    lr = loop_report.LoopReport()
+    lr = parser.LoopReport()
     loop_dict = lr.parse_by_file(os.getcwd() + "/files", "LoopReport.md")
 
     assert loop_dict["file_name"] == "LoopReport.md"
@@ -241,28 +241,28 @@ def get_status_extension_data_manager():
 
 
 def test_parse_by_directory():
-    lr = loop_report.LoopReport()
+    lr = parser.LoopReport()
     list_of_files = lr.parse_by_directory(os.path.realpath("files"))
     assert len(list_of_files) == 2
 
 
 def test_parse_by_file_missing_file_name():
     with pytest.raises(RuntimeError) as excinfo:
-        lr = loop_report.LoopReport()
+        lr = parser.LoopReport()
         lr.parse_by_file(os.getcwd() + "/files", "")
     assert "The file path or file name passed in is invalid." in str(excinfo.value)
 
 
 def test_parse_by_file_invalid_directory():
     with pytest.raises(RuntimeError) as excinfo:
-        lr = loop_report.LoopReport()
+        lr = parser.LoopReport()
         lr.parse_by_file("", "test_loop_report.py")
     assert "The file path or file name passed in is invalid." in str(excinfo.value)
 
 
 def test_parse_by_directory_invalid_directory():
     with pytest.raises(RuntimeError) as excinfo:
-        lr = loop_report.LoopReport()
+        lr = parser.LoopReport()
         lr.parse_by_directory("")
     assert "The directory passed in is invalid." in str(excinfo.value)
 

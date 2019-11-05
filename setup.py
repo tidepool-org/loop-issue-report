@@ -11,7 +11,7 @@ with open("README.md", "r") as fh:
 version_string = "v0.0.1"
 
 setup(
-    name="loop_issue_report",
+    name="issue_report",
     version=version_string,
     author="Tidepool",
     author_email="ed@tidepool.org",

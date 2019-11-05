@@ -1,9 +1,9 @@
-from loop.loop_issue_report import loop_report
+from loop.issue_report import parser
 import os
 
 
 def test_parse_by_file():
-    dict = loop_report.parse_loop_report(os.getcwd() + "/files", "LoopReport.md")
+    dict = parser.parse_loop_report(os.getcwd() + "/files", "LoopReport.md")
     valid_loop_report_dict = get_valid_dictionary()
 
     assert dict == valid_loop_report_dict
