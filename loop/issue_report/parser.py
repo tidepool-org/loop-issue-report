@@ -2,12 +2,12 @@
 description: A convenience class to provide domain specific parsed objects from the loop report parser.
 
 author: Russell Wilson
-dependencies: _raw_parser_helper.py
+dependencies: parser_helper.py
 * <>
 license: BSD-2-Clause
 """
 
-from ._raw_parser_helper import parse_loop_report, Sections
+from .parser_helper import _parse_loop_report, Sections
 import os
 import re
 import json
@@ -44,7 +44,7 @@ class LoopReport:
 
     def __parse(self, path, file_name) -> dict:
         loop_report_dict = {}
-        dict = parse_loop_report(path, file_name)
+        dict = _parse_loop_report(path, file_name)
         loop_report_dict["file_name"] = file_name
         if Sections.LOOP_VERSION in dict:
             try:

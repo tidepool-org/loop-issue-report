@@ -63,7 +63,7 @@ def _split_key_value(line, separator):
     return key, value
 
 
-def parse_loop_report(path: str, file_name: str):
+def _parse_loop_report(path: str, file_name: str):
     current_section = ""
     all_sections = {}
 
@@ -146,37 +146,37 @@ def parse_loop_report(path: str, file_name: str):
                     new_line = False
 
                 elif line.startswith("retrospectivePredictedGlucose"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("glucoseMomentumEffect"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("retrospectiveGlucoseEffect"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("recommendedTempBasal"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("recommendedBolus"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("lastBolus"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("retrospectiveGlucoseChange"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("lastLoopCompleted"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("lastTempBasal"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("carbsOnBoard"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("error"):
-                    parse_key_value(all_sections, line)
+                    _parse_key_value(all_sections, line)
 
                 elif line.startswith("insulinCounteractionEffects:"):
                     insulin_counteraction_effects = []
@@ -416,8 +416,8 @@ def parse_loop_report(path: str, file_name: str):
                         i_list.append(line)
 
                     elif (
-                        not line.startswith("settings")
-                        and current_section == Sections.LOOP_DATA_MANAGER
+                            not line.startswith("settings")
+                            and current_section == Sections.LOOP_DATA_MANAGER
                     ):
                         one = "one"
                     elif(line.startswith("* basalProfileApplyingOverrideHistory")):
@@ -446,7 +446,7 @@ def parse_loop_report(path: str, file_name: str):
 
 
 
-def parse_key_value(all_sections, line):
+def _parse_key_value(all_sections, line):
     dict = all_sections["loop_data_manager"]
     key, value = _split_key_value(line, ":")
     if key or value != "\n":

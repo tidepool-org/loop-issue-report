@@ -3,7 +3,7 @@ import os
 
 
 def test_parse_by_file():
-    dict = parser.parse_loop_report(os.getcwd() + "/files", "LoopReport.md")
+    dict = parser._parse_loop_report(os.getcwd() + "/files", "LoopReport.md")
     valid_loop_report_dict = get_valid_dictionary()
 
     assert dict == valid_loop_report_dict
