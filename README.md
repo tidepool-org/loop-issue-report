@@ -11,7 +11,7 @@ Create and activate a virtual Environment:
 python3 -m venv loop_venv
 source loop_venv/bin/activate # linux/mac
 loop_venv\Scripts\activate # windows 
-pip install git+https://github.com/tidepool-org/loop-issue-report@master -vvv
+pip install git+https://github.com/tidepool-org/loop-issue-report@{Branch Name} -vvv
 ```
 Execute the following with a valid file_path and file_name:
 ``` 
