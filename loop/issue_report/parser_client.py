@@ -5,8 +5,8 @@
 # %% REQUIRED LIBRARIES
 import argparse
 import logging, sys
-#from config.logconfig import log_config
-from loop_report import LoopReport
+from loop.issue_report import parser
+
 import pandas as pd
 import json
 import os
@@ -46,7 +46,7 @@ def parse_by_file(file_path, file_name, output_path):
         os.makedirs(output_path)
 
     # % parse file
-    lr = LoopReport()
+    lr = parser.LoopReport()
     loop_dict = lr.parse_by_file(path=file_path, file_name=file_name)
 
     # save a pretty json

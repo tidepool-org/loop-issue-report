@@ -1,12 +1,29 @@
-### To recreate the Virtual Environment
-1. This environment was developed with Anaconda. You'll need to install [Miniconda](https://conda.io/miniconda.html) or [Anaconda](https://anaconda-installer.readthedocs.io/en/latest/) for your platform.
-2. In a terminal, navigate to the directory where the environment.yml 
-is located (likely the loop-issue-report folder).
-3. Run `conda env create`; this will download all of the package dependencies
-and install them in a virtual environment named loop-issue-report.  
+## Motivation
+Loop reports are written out as a markdown file. This project aims to develop a parser to parse 
+the markdown and return a python Dictionary. This will allow broader programmatic use of the data coming 
+from the loop report. 
 
-### To use the Virtual Environment
-In Bash run `source activate loop-issue-report`, or in the Anaconda Prompt
-run `conda activate loop-issue-report` to start the environment.
+## Usage
+Requires loop report and python 3.6+
 
-Run `deactivate` to stop the environment.
+Create and activate a virtual Environment:
+```
+python3 -m venv loop_venv
+source loop_venv/bin/activate # linux/mac
+loop_venv\Scripts\activate # windows 
+pip install git+https://github.com/tidepool-org/loop-issue-report@master -vvv
+```
+Execute the following with a valid file_path and file_name:
+``` 
+from loop.issue_report import parser
+
+lr = parser.LoopReport()
+file_path = "filePathForLoopReport"
+file_name = "nameOfLoopReport.md"
+loop_dict = lr.parse_by_file(path=file_path, file_name=file_name)
+```
+ Or
+ 
+ Use the parser_client located within loop/issue_report 
+ ToDo: fill in instructions on using the client. 
+ ``` ```
