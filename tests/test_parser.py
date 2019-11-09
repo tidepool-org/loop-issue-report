@@ -68,6 +68,13 @@ def test_parse_by_file():
         == get_insulin_counteraction_effects()
     )
     assert loop_dict["get_reservoir_values"] == get_reservoir_values()
+
+    assert loop_dict["basal_delivery_state"] == get_basal_delivery_state_values()
+
+    assert loop_dict["last_temp_basal"] == get_last_temp_basal_values()
+
+    assert loop_dict["recommended_bolus"] == get_recommended_bolus_values()
+
     assert loop_dict["predicted_glucose"] == get_predicted_glucose()
     assert (
         loop_dict["retrospective_glucose_discrepancies"]
@@ -130,6 +137,22 @@ def test_parse_by_file():
 
     assert (loop_dict["basalProfileApplyingOverrideHistory_timeZone"], -25200)
     assert (loop_dict["basalProfileApplyingOverrideHistory_items"], "[{'startTime': 0.0, 'value': 0.85}, {'value': 0.85, 'startTime': 10800.0}, {'startTime': 43200.0, 'value': 0.5}]")
+
+
+def get_recommended_bolus_values():
+    return {' amount': 0.55, ' pendingInsulin': 4.0, ' notice': 'nil', ' date': '2018-12-13 22:41:35 +0000'}
+
+
+def get_last_temp_basal_values():
+    return {' type': 'LoopKit.DoseType.tempBasal', ' startDate': '2019-01-28 15:01:30 +0000',
+            ' endDate': '2019-01-28 15:31:30 +0000', ' value': 0.0, ' unit': 'LoopKit.DoseUnit.unitsPerHour',
+            ' description': 'nil', ' syncIdentifier': 'nil', ' scheduledBasalRate': 'nil'}
+
+
+def get_basal_delivery_state_values():
+    return {' type': 'LoopKit.DoseType.tempBasal', ' startDate': '2019-11-04 22:51:49 +0000',
+            ' endDate': '2019-11-04 23:21:49 +0000', ' value': 0.0, ' unit': 'LoopKit.DoseUnit.unitsPerHour',
+            ' deliveredUnits': 'nil', ' description': 'nil', ' syncIdentifier': 'nil', ' scheduledBasalRate': 'nil'}
 
 
 def get_integral_retrospective_correction():
@@ -256,7 +279,7 @@ def test_parse_by_file_missing_file_name():
 def test_parse_by_file_invalid_directory():
     with pytest.raises(RuntimeError) as excinfo:
         lr = parser.LoopReport()
-        lr.parse_by_file("", "test_loop_report.py")
+        lr.parse_by_file("", "test_parser.py")
     assert "The file path or file name passed in is invalid." in str(excinfo.value)
 
 

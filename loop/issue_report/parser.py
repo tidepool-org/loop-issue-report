@@ -365,6 +365,25 @@ class LoopReport:
                     logger.debug(e)
 
                 try:
+                    basal_delivery_state = loop_data_manager['basalDeliveryState']
+                    if basal_delivery_state != 'nil':
+                        basal_delivery_state = basal_delivery_state.replace('Optional(LoopKit.PumpManagerStatus.BasalDeliveryState.tempBasal(LoopKit.DoseEntry(', '').replace('))',
+                                                                                                             '').replace(
+                            ')', '')
+                        basal_delivery_state_list = basal_delivery_state.split(",")
+                        basal_delivery_state_dict = {}
+                        for v in basal_delivery_state_list:
+                            aux = v.split(": ")
+                            if 'value' in aux[0]:
+                                basal_delivery_state_dict[aux[0]] = float(aux[1])
+                            else:
+                                basal_delivery_state_dict[aux[0]] = aux[1]
+                        loop_report_dict["basal_delivery_state"] = basal_delivery_state_dict
+                except Exception as e:
+                    logger.debug("handled error loop data manager - basal_delivery_state")
+                    logger.debug(e)
+
+                try:
                     recommended_bolus = loop_data_manager['recommendedBolus']
                     recommended_bolus = recommended_bolus.replace('Optional((recommendation: Loop.BolusRecommendation(', '').replace('))', '').replace(')', '')
                     recommended_bolus_list = recommended_bolus.split(",")

@@ -169,6 +169,9 @@ def _parse_loop_report(path: str, file_name: str):
                 elif line.startswith("lastLoopCompleted"):
                     _parse_key_value(all_sections, line)
 
+                elif line.startswith("basalDeliveryState"):
+                    _parse_key_value(all_sections, line)
+
                 elif line.startswith("lastTempBasal"):
                     _parse_key_value(all_sections, line)
 

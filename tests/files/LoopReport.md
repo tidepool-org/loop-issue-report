@@ -225,6 +225,7 @@ lastBolus: nil
 retrospectiveGlucoseChange: Optional((start: LoopKit.StoredGlucoseSample(sampleUUID: 8B9AA1D2-E475-47E0-9612-76C01A438AD3, syncIdentifier: "00AA0A 2594908", syncVersion: 1, startDate: 2019-01-28 14:51:19 +0000, quantity: 89 mg/dL, isDisplayOnly: false, provenanceIdentifier: "com.34SNZ39Q48.loopkit.Loop"), end: LoopKit.StoredGlucoseSample(sampleUUID: 7ED3FC10-0E37-4243-86F1-6E187E62F2DF, syncIdentifier: "00AA0A 2596408", syncVersion: 1, startDate: 2019-01-28 15:16:20 +0000, quantity: 85 mg/dL, isDisplayOnly: false, provenanceIdentifier: "com.34SNZ39Q48.loopkit.Loop")))
 lastLoopCompleted: Optional(2019-01-28 15:16:28 +0000)
 lastTempBasal: Optional(LoopKit.DoseEntry(type: LoopKit.DoseType.tempBasal, startDate: 2019-01-28 15:01:30 +0000, endDate: 2019-01-28 15:31:30 +0000, value: 0.0, unit: LoopKit.DoseUnit.unitsPerHour, description: nil, syncIdentifier: nil, scheduledBasalRate: nil))
+basalDeliveryState: Optional(LoopKit.PumpManagerStatus.BasalDeliveryState.tempBasal(LoopKit.DoseEntry(type: LoopKit.DoseType.tempBasal, startDate: 2019-11-04 22:51:49 +0000, endDate: 2019-11-04 23:21:49 +0000, value: 0.0, unit: LoopKit.DoseUnit.unitsPerHour, deliveredUnits: nil, description: nil, syncIdentifier: nil, scheduledBasalRate: nil)))
 carbsOnBoard: Optional(LoopKit.CarbValue(startDate: 2019-01-28 15:15:00 +0000, endDate: 2019-01-28 15:15:00 +0000, quantity: 0 g))
 error: nil
 
