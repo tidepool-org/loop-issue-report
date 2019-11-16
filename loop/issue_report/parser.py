@@ -356,9 +356,9 @@ class LoopReport:
                         for v in last_temp_basal_list:
                             aux = v.split(": ")
                             if 'value' in aux[0]:
-                                last_temp_basal_dict[aux[0]] = float(aux[1])
+                                last_temp_basal_dict[aux[0].lstrip()] = float(aux[1])
                             else:
-                                last_temp_basal_dict[aux[0]] = aux[1]
+                                last_temp_basal_dict[aux[0].lstrip()] = aux[1]
                         loop_report_dict["last_temp_basal"] = last_temp_basal_dict
                 except Exception as e:
                     logger.debug("handled error loop data manager - last_temp_basal")
@@ -375,9 +375,9 @@ class LoopReport:
                         for v in basal_delivery_state_list:
                             aux = v.split(": ")
                             if 'value' in aux[0]:
-                                basal_delivery_state_dict[aux[0]] = float(aux[1])
+                                basal_delivery_state_dict[aux[0].lstrip()] = float(aux[1])
                             else:
-                                basal_delivery_state_dict[aux[0]] = aux[1]
+                                basal_delivery_state_dict[aux[0].lstrip()] = aux[1]
                         loop_report_dict["basal_delivery_state"] = basal_delivery_state_dict
                 except Exception as e:
                     logger.debug("handled error loop data manager - basal_delivery_state")
@@ -391,11 +391,11 @@ class LoopReport:
                     for v in recommended_bolus_list:
                         aux = v.split(": ")
                         if 'amount' in aux[0]:
-                            recommended_bolus_dict[aux[0]] = float(aux[1])
+                            recommended_bolus_dict[aux[0].lstrip()] = float(aux[1])
                         elif 'pendingInsulin' in aux[0]:
-                            recommended_bolus_dict[aux[0]] = float(aux[1])
+                            recommended_bolus_dict[aux[0].lstrip()] = float(aux[1])
                         else:
-                            recommended_bolus_dict[aux[0]] = aux[1]
+                            recommended_bolus_dict[aux[0].lstrip()] = aux[1]
                     loop_report_dict["recommended_bolus"] = recommended_bolus_dict
                 except Exception as e:
                     logger.debug("handled error loop data manager - recommended_bolus")
@@ -480,7 +480,7 @@ class LoopReport:
                     start_dict = {}
                     for v in start_list:
                         aux = v.split(": ")
-                        start_dict[aux[0]] = aux[1]
+                        start_dict[aux[0].lstrip()] = aux[1]
 
                     end = retrospective_glucose_change[split_index:]
                     end = end.replace("end: LoopKit.StoredGlucoseSample(", "").replace(")", "")
@@ -488,7 +488,7 @@ class LoopReport:
                     end_dict = {}
                     for v in end_list:
                         aux = v.split(": ")
-                        end_dict[aux[0]] = aux[1]
+                        end_dict[aux[0].lstrip()] = aux[1]
 
                     retrospective_glucose_change_dict = {}
                     retrospective_glucose_change_dict['start_dict'] = start_dict
@@ -1286,7 +1286,7 @@ class LoopReport:
                     value_dict = {}
                     for value in temp_list:
                         val = value.split(":")
-                        value_dict[val[0]] = val[1]
+                        value_dict[val[0].lstrip()] = val[1]
                         '"85.732078872579'
                     status_extension_context_dict["sensor"] = value_dict
                 except Exception as e:

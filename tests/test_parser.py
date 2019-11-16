@@ -140,19 +140,19 @@ def test_parse_by_file():
 
 
 def get_recommended_bolus_values():
-    return {' amount': 0.55, ' pendingInsulin': 4.0, ' notice': 'nil', ' date': '2018-12-13 22:41:35 +0000'}
+    return {'amount': 0.55, 'pendingInsulin': 4.0, 'notice': 'nil', 'date': '2018-12-13 22:41:35 +0000'}
 
 
 def get_last_temp_basal_values():
-    return {' type': 'LoopKit.DoseType.tempBasal', ' startDate': '2019-01-28 15:01:30 +0000',
-            ' endDate': '2019-01-28 15:31:30 +0000', ' value': 0.0, ' unit': 'LoopKit.DoseUnit.unitsPerHour',
-            ' description': 'nil', ' syncIdentifier': 'nil', ' scheduledBasalRate': 'nil'}
+    return {'type': 'LoopKit.DoseType.tempBasal', 'startDate': '2019-01-28 15:01:30 +0000',
+            'endDate': '2019-01-28 15:31:30 +0000', 'value': 0.0, 'unit': 'LoopKit.DoseUnit.unitsPerHour',
+            'description': 'nil', 'syncIdentifier': 'nil', 'scheduledBasalRate': 'nil'}
 
 
 def get_basal_delivery_state_values():
-    return {' type': 'LoopKit.DoseType.tempBasal', ' startDate': '2019-11-04 22:51:49 +0000',
-            ' endDate': '2019-11-04 23:21:49 +0000', ' value': 0.0, ' unit': 'LoopKit.DoseUnit.unitsPerHour',
-            ' deliveredUnits': 'nil', ' description': 'nil', ' syncIdentifier': 'nil', ' scheduledBasalRate': 'nil'}
+    return {'type': 'LoopKit.DoseType.tempBasal', 'startDate': '2019-11-04 22:51:49 +0000',
+            'endDate': '2019-11-04 23:21:49 +0000', 'value': 0.0, 'unit': 'LoopKit.DoseUnit.unitsPerHour',
+            'deliveredUnits': 'nil', 'description': 'nil', 'syncIdentifier': 'nil', 'scheduledBasalRate': 'nil'}
 
 
 def get_integral_retrospective_correction():
@@ -165,9 +165,9 @@ def get_status_extension_data_manager():
     return {
         "sensor": {
             "isStateValid": " true",
-            " stateDescription": " ok ",
-            " trendType": " 4",
-            " isLocal": " true",
+            "stateDescription": " ok ",
+            "trendType": " 4",
+            "isLocal": " true",
         },
         "netBasal": {
             "": ' "percentage"',
@@ -328,22 +328,22 @@ def get_retrospective_predicted_glucose():
 def get_retrospective_glucose_change():
     return {
         "start_dict": {
-            " sampleUUID": "8B9AA1D2-E475-47E0-9612-76C01A438AD3",
-            " syncIdentifier": '"00AA0A 2594908"',
-            " syncVersion": "1",
-            " startDate": "2019-01-28 14:51:19 +0000",
-            " quantity": "89 mg/dL",
-            " isDisplayOnly": "false",
-            " provenanceIdentifier": '"com.34SNZ39Q48.loopkit.Loop"',
+            "sampleUUID": "8B9AA1D2-E475-47E0-9612-76C01A438AD3",
+            "syncIdentifier": '"00AA0A 2594908"',
+            "syncVersion": "1",
+            "startDate": "2019-01-28 14:51:19 +0000",
+            "quantity": "89 mg/dL",
+            "isDisplayOnly": "false",
+            "provenanceIdentifier": '"com.34SNZ39Q48.loopkit.Loop"',
         },
         "end_dict": {
             "sampleUUID": "7ED3FC10-0E37-4243-86F1-6E187E62F2DF",
-            " syncIdentifier": '"00AA0A 2596408"',
-            " syncVersion": "1",
-            " startDate": "2019-01-28 15:16:20 +0000",
-            " quantity": "85 mg/dL",
-            " isDisplayOnly": "false",
-            " provenanceIdentifier": '"com.34SNZ39Q48.loopkit.Loop"',
+            "syncIdentifier": '"00AA0A 2596408"',
+            "syncVersion": "1",
+            "startDate": "2019-01-28 15:16:20 +0000",
+            "quantity": "85 mg/dL",
+            "isDisplayOnly": "false",
+            "provenanceIdentifier": '"com.34SNZ39Q48.loopkit.Loop"',
         },
     }
 
