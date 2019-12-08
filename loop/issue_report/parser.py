@@ -927,6 +927,20 @@ class LoopReport:
             try:
                 items = dict[Sections.GET_PUMP_EVENT_VALUES]
                 get_pump_even_values_list = []
+                """
+                PersistedPumpEvent(date: 2019 - 11 - 04
+                22: 56:40 + 0000, persistedDate: 2019 - 11 - 04
+                22: 56:56 + 0000, dose: Optional(
+                    LoopKit.DoseEntry(type: LoopKit.DoseType.bolus, startDate: 2019 - 11 - 04
+                22: 56:40 + 0000, endDate: 2019 - 11 - 04
+                22: 59:44 + 0000, value: 4.6, unit: LoopKit.DoseUnit.units, deliveredUnits: nil, description: nil, syncIdentifier: Optional(
+                    "93c0bcb737d148aebe6638adc427d9ee"), scheduledBasalRate: nil)), isUploaded: true, objectIDURL: x - coredata: // 44
+                B5D009 - 4580 - 427E-9206 - 36
+                FD8B6E73DB / PumpEvent / p623800, raw: Optional(16
+                bytes), title: Optional("Bolus units:4.6 2019-11-04 22:56:40 +0000"), type: Optional(
+                    LoopKit.PumpEventType.bolus), isMutable: true)
+                """
+
                 for temp in items:
 
                     get_pump_even_values_dict = {}
@@ -965,6 +979,19 @@ class LoopReport:
                         logger.debug(e)
 
                     value = "isLeapMonth"
+                    try:
+                        start_index = temp.index(value)
+                        value_temp = temp[start_index:]
+                        value_temp = value_temp.replace('"', '')
+                        last_index = value_temp.index(",")
+                        get_pump_even_values_dict[value] = value_temp[len(value) + 1:last_index]
+                    except Exception as e:
+                        logger.debug("handled error GET_PUMP_EVENT_VALUES --" + value)
+                        logger.debug(e)
+
+
+
+                    value = "deliveredUnits"
                     try:
                         start_index = temp.index(value)
                         value_temp = temp[start_index:]
