@@ -6,6 +6,7 @@ import pytest
 
 def test_parse_by_file():
     lr = parser.LoopReport()
+    print("filepath", os.getcwd())
     loop_dict = lr.parse_by_file(os.getcwd() + "/files", "LoopReport.md")
 
     assert loop_dict["file_name"] == "LoopReport.md"
