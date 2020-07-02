@@ -1,9 +1,9 @@
 from loop.issue_report import parser_helper
-import os
+from pathlib import Path
 
 
 def test_parse_by_file():
-    dict = parser_helper._parse_loop_report(os.getcwd() + "/files", "LoopReport.md")
+    dict = parser_helper._parse_loop_report(f"{Path(__file__).parent.resolve()}/files", "LoopReport.md")
     valid_loop_report_dict = get_valid_dictionary()
 
     assert dict == valid_loop_report_dict

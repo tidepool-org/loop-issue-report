@@ -2,12 +2,12 @@
 from loop.issue_report import parser
 import os
 import pytest
+from pathlib import Path
 
 
 def test_parse_by_file():
     lr = parser.LoopReport()
-    print("filepath", os.getcwd())
-    loop_dict = lr.parse_by_file(os.getcwd() + "/files", "LoopReport.md")
+    loop_dict = lr.parse_by_file(f"{Path(__file__).parent.resolve()}/files", "LoopReport.md")
 
     assert loop_dict["file_name"] == "LoopReport.md"
     assert loop_dict["loop_version"] == "Loop v1.9.3"
