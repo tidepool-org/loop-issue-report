@@ -266,14 +266,14 @@ def get_status_extension_data_manager():
 
 def test_parse_by_directory():
     lr = parser.LoopReport()
-    list_of_files = lr.parse_by_directory(os.path.realpath("files"))
+    list_of_files = lr.parse_by_directory(f"{Path(__file__).parent.resolve()}/files")
     assert len(list_of_files) == 2
 
 
 def test_parse_by_file_missing_file_name():
     with pytest.raises(RuntimeError) as excinfo:
         lr = parser.LoopReport()
-        lr.parse_by_file(os.getcwd() + "/files", "")
+        lr.parse_by_file(f"{Path(__file__).parent.resolve()}/files", "")
     assert "The file path or file name passed in is invalid." in str(excinfo.value)
 
 
