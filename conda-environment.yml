@@ -1,0 +1,12 @@
+name: generate-tests
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - black==19.10b0
+  - numpy=1.16.4
+  - pandas=0.24.2
+  - pip==20.0.2
+  - python=3.7.3
+  - pip:
+    - git+git://github.com/tidepool-org/loop-issue-report@rpw/initial
